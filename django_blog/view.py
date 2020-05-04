@@ -3,7 +3,8 @@ from django.shortcuts import render
 
 def welcome_page(req):
    parag = "some content"
-   return render(req,"welcome.html",{"content":parag})  
+   context={"content":parag}
+   return render(req,"welcome.html",context)  
 
 def about_page(req):
 
@@ -12,3 +13,7 @@ def about_page(req):
 def contact_page(req):
    
    return render(req,"contact.html")   
+
+def example_page(req):
+   context={"content":"example type content for tags","list":["one","two","three"]}
+   return render(req,"example.html",context) 
