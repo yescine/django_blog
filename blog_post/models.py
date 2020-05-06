@@ -4,4 +4,3 @@ from django.db import models
 class UserPost( models.Model):
    title = models.TextField()
    contents=models.TextField(null=True,blank=True)
-
