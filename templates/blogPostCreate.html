@@ -2,4 +2,9 @@
 
 {% block content %}
 <h1>create post </h1>
+<form method="POST" action=".">
+   {%csrf_token%}
+   {{ form }}
+   <button type="submit" class="btn btn-primary">send</button>
+</form>
 {% endblock %}

@@ -1,7 +1,10 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 from .models import UserPost
+from .form import BlogPostForm
 
 def blog_post_detail(req):
    qs = UserPost.objects.all()
@@ -13,9 +16,14 @@ def blog_post_page(req,post_id):
    context = {"object": obj}
    return render(req,"blogPost.html",context)
 
+@login_required
 def blog_post_create(req):
-   obj=None
-   context={"from":obj}
+   form=BlogPostForm(req.POST)
+   if form.is_valid():
+      print(form.cleaned_data)
+      UserPost.objects.create(**form.cleaned_data)
+      form=BlogPostForm()        
+   context={"form":form}
    template_name= "blogPostCreate.html"
    return render(req,template_name,context)
 
