@@ -2,6 +2,6 @@
 
 {% block content %}
    {%for object in object%}
-      <h3>{{object.title}} </h3>
+      <h3><a href='{{object.get_absolute_url}}'>{{object.title}} </a> </h3>
    {%endfor%}
 {% endblock %}
