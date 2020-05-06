@@ -2,6 +2,13 @@
 
 {% block content %}
    {%for object in object%}
-      <h3><a href='{{object.get_absolute_url}}'>{{object.title}} </a> </h3>
+      <div class="card mb-3 mt-3">
+         <div class="card-body">
+            <h5>{{object.title}}</h5>
+            <p>{{object.contents|truncatewords:40}}</p>
+
+            <a href='{{object.get_absolute_url}}'>view</a>
+         </div>
+      </div>
    {%endfor%}
 {% endblock %}
