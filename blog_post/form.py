@@ -14,4 +14,4 @@ class BlogPostForm(forms.Form):
 class UserPostModelForm(forms.ModelForm):
    class Meta:
       model=UserPost
-      fields=['title','contents']
+      fields=['title','contents','publishDate']

@@ -7,6 +7,13 @@ from django.contrib.admin.views.decorators import staff_member_required
 from .models import UserPost
 from .form import BlogPostForm, UserPostModelForm
 
+def blog_search(req):
+   q=req.GET.get('query')
+   obj=UserPost.objects.filter(title__icontains=q)
+   context={"object":obj}
+   template_name= "search.html"
+   return render(req,template_name,context)
+
 def blog_post_detail(req):
    qs = UserPost.objects.all()
    context = {"object": qs}

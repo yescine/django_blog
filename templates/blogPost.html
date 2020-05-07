@@ -6,8 +6,8 @@
 
 {%if request.user.is_authenticated%}
    {%if request.user.is_staff%}
-   <a href='{{object.get_edit_url}}'>edit</a>
-   <a href='{{object.get_delete_url}}'>delete</a>      
+   <a href='{{object.get_edit_url}}' class="btn btn-success">edit</a>
+   <a href='{{object.get_delete_url}}' class="btn btn-danger">delete</a>      
    {%endif%}
 {%endif%}
 

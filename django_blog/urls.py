@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from .view import welcome_page,about_page,contact_page,example_page
-from blog_post.views import blog_post_create
+from blog_post.views import blog_post_create,blog_search
 
 urlpatterns = [
     path('home/',welcome_page),
+    path('search/',blog_search),    
     path('about/',about_page), 
     path('blog/',include('blog_post.urls')), 
     path('blog-new/',blog_post_create), 
